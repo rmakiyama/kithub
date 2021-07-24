@@ -1,4 +1,4 @@
-package com.rmakiyama.kithub.android
+package com.rmakiyama.kithub
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,7 +9,6 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.rmakiyama.kithub.Greeting
 
 fun greet(): String {
     return Greeting().greeting()
