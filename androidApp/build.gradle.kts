@@ -1,13 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-}
-
-dependencies {
-    implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    kotlin("kapt")
 }
 
 android {
@@ -24,4 +18,23 @@ android {
             isMinifyEnabled = false
         }
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Compose.version
+    }
+}
+
+dependencies {
+    implementation(project(":shared"))
+
+    implementation("com.google.android.material:material:1.4.0")
+    implementation("androidx.appcompat:appcompat:1.3.1")
+
+    // compose
+    implementation(Compose.ui)
+    implementation(Compose.uiTooling)
+    implementation(Compose.material)
+    implementation(Compose.activity)
 }
