@@ -22,7 +22,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Compose.version
+        kotlinCompilerExtensionVersion = Versions.compose
     }
 }
 
@@ -33,8 +33,10 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.3.1")
 
     // compose
-    implementation(Compose.ui)
-    implementation(Compose.uiTooling)
-    implementation(Compose.material)
-    implementation(Compose.activity)
+    with(Deps.Compose) {
+        implementation(ui)
+        implementation(uiTooling)
+        implementation(material)
+        implementation(activity)
+    }
 }

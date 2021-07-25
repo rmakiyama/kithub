@@ -22,7 +22,20 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                with(Deps.Koin) {
+                    api(core)
+                }
+                with(Deps.Ktor) {
+                    implementation(core)
+                    implementation(serialization)
+                }
+                with(Deps.Kotlinx) {
+                    implementation(serializationCore)
+                }
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
