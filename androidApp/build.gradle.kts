@@ -30,13 +30,24 @@ dependencies {
     implementation(project(":shared"))
 
     implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
 
-    // compose
+    with(Deps.AndroidX) {
+        implementation(appCompat)
+        implementation(activity)
+        implementation(viewModelCompose)
+    }
+
     with(Deps.Compose) {
         implementation(ui)
         implementation(uiTooling)
         implementation(material)
-        implementation(activity)
+        implementation(runtime)
+        implementation(runtimeLiveData)
+    }
+
+    with(Deps.Koin) {
+        api(core)
+        api(android)
+        api(compose)
     }
 }
